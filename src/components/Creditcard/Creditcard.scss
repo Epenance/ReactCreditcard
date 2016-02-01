@@ -1,0 +1,121 @@
+.creditcardWrapper {
+  width:400px;
+  height:200px;
+  margin-top:20px;
+  position:relative;
+  perspective: 800px;
+  margin-bottom:20px;
+
+  .creditCard {
+    width:100%;
+    height:100%;
+    position:absolute;
+    transform-style: preserve-3d;
+    transition: transform 1s;
+    transform-origin: right center;
+    box-shadow:2px 2px 2px rgba(0,0,0,0.2);
+    border-radius:12px;
+    border:1px solid rgba(0,0,0,0.2);
+
+
+    &.flipped {
+      transform:translateX( -100% ) rotateY( -180deg );
+    }
+
+    .cardPage {
+      margin:0;
+      display:block;
+      position:absolute;
+      width:100%;
+      height:100%;
+      backface-visibility: hidden;
+      background:white;
+      border-radius:12px;
+
+      &.front {
+        background: #2163b3;
+        .cardCompany {
+          position:absolute;
+          bottom:20px;
+          right:20px;
+          font-size:28px;
+          font-weight:bold;
+          background:white;
+          padding:5px;
+          color: #144cb3;
+        }
+
+        .cardHolder {
+          position:absolute;
+          bottom:20px;
+          left:20px;
+          font-size:18px;
+          font-weight:bold;
+          color:white;
+          text-shadow:1px 1px 0 rgba(0,0,0,0.2);
+        }
+
+        .cardNumber {
+          color:white;
+          position:absolute;
+          left:20px;
+          bottom:80px;
+          font-size:26px;
+          text-shadow:1px 1px 0 rgba(0,0,0,0.2);
+        }
+
+        .cardExpire {
+          color:white;
+          position:absolute;
+          left:20px;
+          bottom:60px;
+          font-size:14px;
+          text-shadow:1px 1px 0 rgba(0,0,0,0.2);
+        }
+
+        .chip {
+          position:absolute;
+          left:20px;
+          bottom:120px;
+          background:gold;
+          width:60px;
+          height:35px;
+          border-radius:5px;
+          border:1px solid darkgoldenrod;
+          box-sizing: border-box;
+
+          &:after {
+            display:block;
+            content:'';
+            position:absolute;
+            height:100%;
+            width:1px;
+            background:darkgoldenrod;
+            left:20px;
+            top:0;
+          }
+
+          &:before {
+            display:block;
+            content:'';
+            position:absolute;
+            height:1px;
+            width:calc(100% - 20px);
+            background:darkgoldenrod;
+            left:20px;
+            top:15px;
+          }
+        }
+      }
+
+      &.back {
+        transform:rotateY(180deg);
+      }
+    }
+  }
+}
+
+
+
+
+
